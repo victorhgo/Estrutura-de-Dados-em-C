@@ -374,5 +374,21 @@ struct registro var;
 <a id="pagina6"></a>
 ## Abstração de Dados
 
-Uma pequena reflexão proposta pelo professor: Quando escrevemos um algoritmo que somará dois valores do tipo *float*, nós não estamos nos preocupando em como a operação interna é feita. Por exemplo, internamente o *float* é representado por um número binário. Logo, o compilador irá esconder todos os detalhes da operação realizada. Mas quando lidamos com números complexos, nos preocupamos com os detalhes, pois temos que realizar mais operações para somar os números: É necessário somar as partes Reais com as partes Imaginárias, e somar o quadrado dessa soma. Então, como abstrair um número complexo? Podemos fazer isso utilizando registros(como feito no problema 2) ou funções.
+Uma pequena reflexão proposta pelo professor em aula: Quando escrevemos um algoritmo que somará dois valores do tipo *float*, nós não estamos nos preocupando em como a operação interna é feita. Por exemplo, internamente o *float* é representado por um número binário. Logo, o compilador irá esconder todos os detalhes da operação realizada. Mas quando lidamos com números complexos, nos preocupamos com os detalhes, pois temos que realizar mais operações para somar os números: É necessário somar as partes Reais com as partes Imaginárias, e somar o quadrado dessa soma. Então, como abstrair um número complexo? Podemos fazer isso utilizando registros(como feito no problema 2) ou funções.
+
+Então um Tipo Abstrato de Dados é um conjunto de valores associados a um conjunto de operações permitidas nesses dados:
+
+- **Interface** - Na interface nós definimos as funções, como elas irão funcionar e também é definido o que precisa ser implementado. Então será definido quais operações podemos realizar num tipo abstrato de Dados.
+
+- **Implementação** - Na implementação nós definimos como as coisas serão feitas no código, suas funções. Então será o conjunto de algoritmos que realizarão as operações. Na implementação será o único lugar onde nos preocuparemos como as coisas funcionam internamente.
+
+- **Cliente** - Será o código que irá utilizar as funções definidas na implementação sem se importar como as funções funcionam, só é necessário conhecer quais são as funções e como elas podem ser utilizadas. O Cliente nunca deverá acessar uma variável diretamente.
+
+> A **Interface** e a **Implementação** poderão ser reutilizadas em outros programas.
+
+Em C nós utilizamos uma *struct* para trabalhar com esse tipo abstrato de Dados. O conjunto de funções que manipulam a *struct* será a Interface.
+
+### Como é programado isso?
+
+No diretório *Source Codes/Exemplo 2*, será criado a inteface *complexos.h* com a *struct* e os protótipos de função.
 
