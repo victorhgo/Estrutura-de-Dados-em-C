@@ -7,6 +7,7 @@
 - [Tipos(vetores e *strings*)](#pagina4)
 - [*Struct* e *typedef*](#pagina5)
 - [Abstração de Dados](#pagina6)
+- [Ponteiros](#pagina7)
 
 <a id="pagina1"></a>
 ## Introdução
@@ -376,7 +377,7 @@ struct registro var;
 
 Uma pequena reflexão proposta pelo professor em aula: Quando escrevemos um algoritmo que somará dois valores do tipo *float*, nós não estamos nos preocupando em como a operação interna é feita. Por exemplo, internamente o *float* é representado por um número binário. Logo, o compilador irá esconder todos os detalhes da operação realizada. Mas quando lidamos com números complexos, nos preocupamos com os detalhes, pois temos que realizar mais operações para somar os números: É necessário somar as partes Reais com as partes Imaginárias, e somar o quadrado dessa soma. Então, como abstrair um número complexo? Podemos fazer isso utilizando registros(como feito no problema 2) ou funções.
 
-Então um Tipo Abstrato de Dados é um conjunto de valores associados a um conjunto de operações permitidas nesses dados:
+Então um Tipo Abstrato de Dados (TAD) é um conjunto de valores associados a um conjunto de operações permitidas nesses dados:
 
 - **Interface** - Na interface nós definimos as funções, como elas irão funcionar e também é definido o que precisa ser implementado. Então será definido quais operações podemos realizar num tipo abstrato de Dados.
 
@@ -391,4 +392,54 @@ Em C nós utilizamos uma *struct* para trabalhar com esse tipo abstrato de Dados
 ### Como é programado isso?
 
 No diretório *Source Codes/Exemplo 2*, será criado a inteface *complexos.h* com a *struct* e os protótipos de função.
+
+Após criado a *complexos.h*, será criado *complexos.c* onde serão criado as implementações. E por ultimo, *cliente.c*, onde de fato está sendo utilizado todas as funções, o cliente.
+
+### Compilação
+
+Note que possuímos 3 arquivos diferentes:
+
+> *complexos.h* onde será nossa interface, *complexos.c* onde estão as implementações, e *cliente.c* que desempenha o papel de cliente.
+
+Começaremos por compilar o cliente:
+
+> gcc -ansi -Wall -pedantic-errors -Werror -g *-c* cliente.c
+
+Onde o *-c* vai gerar um arquivo compilado *cliente.o*, mas não é o programa, pois não possuí tudo que é suficiente para rodar o programa. Precisamos compilar também as implementações:
+
+> gcc -ansi -Wall -pedantic-errors -Werror -g -c complexos.c
+
+Que irá gerar o arquivo compilado *complexos.o*, que também não é suficiente para rodar o programa.
+
+E por fim, compilamos o arquivo compilado do cliente e da implementação e criamos um executável que será de fato o programa, então o comando abaixo faz a linkagem do cliente com a implementação:
+
+> gcc cliente.o complexos.o -lm -o programa_final
+
+## Makefile
+
+Também podemos utilizar um makefile, basta ir no diretório onde encontram-se os arquivos e criar o Makefile, que é basicamente uma receita que instrui o compilador de como criar o programa desejado.
+
+## Vantagens do TAD
+
+Uma das principais vantagens do TAD é a reutilização do código em vários programas, pois tanto a biblioteca *complexos.h* quanto a implementação *complexos.c* podem ser reutilizados. Também nos permite a criação de bibliotecas de tipos úteis. Outra vantagem é a simplificação do código, tornando-o mais claro e elegante, pois o cliente só precisará se preocupar em utilizar suas funções.
+
+Ao separar a implementação da interface, poderá ser mudado a implementação sem quebrar os clientes, facilitando na hora de fazer otimizações, adição de novas funções e manutenção. Também garantimos que o resultado das funçõe sempre serão os mesmos.
+
+<a id="pagina7"></a>
+## Ponteiros
+
+Todas as informações usadas pelo programa está armazenada em algum lugar (Memória). E todas as variáveis possuem um **endereço de memória**. Então suponhamos um vetor que contém armazenado os 10 primeiros números inteiros:
+
+| Variável| Índice | Endereço
+| --- | --- | --- |
+| 1 | 0 | **0A** |
+| 2 | 1 | **00** |
+| 3 | 2 | **0F** |
+| 4 | 3 | **FB** |
+| 5 | 4 | **FC** |
+| 6 | 5 | **E0** |
+| 7 | 6 | **01** |
+| 8 | 7 | **07** |
+| 9 | 8 | **1F** |
+| 10 | 9 | **FF** |
 
