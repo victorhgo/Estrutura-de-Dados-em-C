@@ -1,4 +1,5 @@
-/* Problema 1 (Exemplo): Dado um conjunto de pontos do plano, como calcular o centroide? */
+/* MC202 - Professor Rafael Crivellari Saliba Schouery -
+Problema 1 (Exemplo): Dado um conjunto de pontos do plano, como calcular o centroide? */
 
 #include <stdio.h>
 #define MAX 100 // Tamanho máximo dos vetores
@@ -22,7 +23,7 @@ int main() {
         cy += y[i] / n;
     }
 
-// Imprimir a coordenada do centróide.
+// Imprimir a coordenada do centroide.
     printf("%f %f", cx,cy);
     return 0;
 }

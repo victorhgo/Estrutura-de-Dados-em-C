@@ -1,6 +1,7 @@
-/* Implementação: Onde serão definidos a funcionalidade das funções */
+/* MC202 - Professor Rafael Crivellari Saliba Schouery
+Implementação: Onde serão definidos a funcionalidade das funções 
 
-/* aspas: procure no diretório atual, localmente
+aspas: procure no diretório atual, localmente
 também poderá ser criado uma pasta Bibliotecas e ficará
 #include "Bibliotecas/complexos.h" */
 

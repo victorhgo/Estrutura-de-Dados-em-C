@@ -1,4 +1,6 @@
-/* Problema 2 - Um programa para lidar com numeros complexos.
+/* MC202 - Professor Rafael Crivellari Saliba Schouery
+
+Problema 2 - Um programa para lidar com numeros complexos.
 Queremos somar dois números complexos lidos e calcular o valor absoluto.
 (v(a²+b²)) */
 #include <stdio.h>

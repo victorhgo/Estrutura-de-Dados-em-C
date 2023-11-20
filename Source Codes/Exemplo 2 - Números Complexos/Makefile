@@ -1,3 +1,5 @@
+# MC202 - Professor Rafael Crivellari Saliba Schouery
+
 all: programa_final
 
 programa_final: cliente.o complexos.o

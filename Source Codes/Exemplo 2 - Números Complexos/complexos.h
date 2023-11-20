@@ -1,4 +1,5 @@
-/* Implementação: Será definido a struct e os protótipos de função */
+/* MC202 - Professor Rafael Crivellari Saliba Schouery
+Implementação: Será definido a struct e os protótipos de função */
 
 typedef struct{
     double real;

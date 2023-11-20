@@ -1,3 +1,5 @@
+/* MC202 - Professor Rafael Crivellari Saliba Schouery */
+
 #include <stdio.h>
 #define MAX 100
 
